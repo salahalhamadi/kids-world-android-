@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#6557d9"><meta name="description" content="عالم الطفل: تعلم والعب واكتشف بالعربية والإنجليزية"><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon.svg" type="image/svg+xml">
+<title>عالم الطفل | Kids World</title>
+<style>
+:root{
+ --site-primary:#6557d9;--site-secondary:#ffcf5b;--site-background:#f5f6ff;
+ --site-on-primary:#ffffff;--site-on-secondary:#392b00;--site-on-background:#252443;
+ --site-font-body:Tahoma,Arial,sans-serif;--site-font-heading:Tahoma,Arial,sans-serif;
+ --site-heading-scale:1;--site-spacing-scale:1;--site-radius-scale:1;--site-decoration-opacity:1;
+ --surface:#ffffff;--surface-2:#efedff;--text:#252443;--muted:#77758f;--border:#e7e5f2;
+ --mint:#baf0d9;--pink:#ffd9e6;--blue:#dcecff;--lav:#e9e4ff;--orange:#ffe4c7;
+}
+*{box-sizing:border-box}body{margin:0;background:light-dark(var(--site-background),#17162a);color:light-dark(var(--text),#f4f2ff);font-family:var(--site-font-body)}
+#app{min-height:100vh;background-color:light-dark(var(--site-background),#17162a);color:light-dark(var(--text),#f4f2ff);border-radius:0;overflow:hidden}
+button{font:inherit;cursor:pointer;border:0}button:focus-visible,a:focus-visible{outline:3px solid #f1a92c;outline-offset:3px}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:16px clamp(16px,4vw,54px);background:var(--surface);border-bottom:1px solid var(--border);gap:12px;position:sticky;top:0;z-index:5}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:20px}.brand-mark{width:42px;height:42px;border-radius:15px;background:var(--site-primary);color:white;display:grid;place-items:center;font-size:24px;box-shadow:0 6px 16px #6557d933}.brand small{display:block;color:var(--muted);font-size:10px;font-weight:600;letter-spacing:.4px}
+.top-actions{display:flex;align-items:center;gap:9px}.pill{border:1px solid var(--border);background:var(--surface);color:var(--text);border-radius:999px;padding:9px 14px;font-weight:700}.lang{background:var(--site-secondary);color:#392b00;border-color:transparent}
+.layout{display:grid;grid-template-columns:230px minmax(0,1fr);max-width:1440px;margin:auto;min-height:calc(100vh - 75px)}
+.sidebar{padding:24px 16px;background:var(--surface);border-left:1px solid var(--border)}.profile{background:var(--lav);border-radius:22px;padding:16px;text-align:center;margin-bottom:20px;color:#39316f}.avatar{font-size:40px}.profile b{display:block;margin:4px}.profile span{font-size:12px;color:#77709e}.nav{display:grid;gap:7px}.nav button{display:flex;align-items:center;gap:12px;text-align:right;padding:12px 14px;border-radius:15px;background:transparent;color:var(--text);font-weight:700}.nav button.active,.nav button:hover{background:var(--surface-2);color:var(--site-primary)}.nav .ico{font-size:21px;width:25px;text-align:center}.parent-link{margin-top:25px;width:100%;padding:12px;border-radius:14px;background:#fff4df;color:#80540a;font-weight:800}
+main{padding:clamp(18px,3vw,38px);min-width:0}.welcome{display:flex;align-items:center;justify-content:space-between;gap:20px;background:linear-gradient(115deg,#6b5bdd,#8c7bea);border-radius:28px;padding:clamp(22px,4vw,38px);color:#fff;overflow:hidden;position:relative}.welcome:after{content:'✦';position:absolute;left:7%;top:-26px;font-size:170px;opacity:.13}.welcome h1{font-size:calc(30px * var(--site-heading-scale));line-height:1.25;margin:0 0 10px}.welcome p{margin:0 0 20px;color:#eeebff;max-width:520px;line-height:1.8}.cta{background:var(--site-secondary);color:#3c300b;border-radius:14px;padding:12px 19px;font-weight:900}.hero-art{font-size:clamp(70px,11vw,128px);filter:drop-shadow(0 12px 8px #30277b55);z-index:1}
+.section-head{display:flex;justify-content:space-between;align-items:center;margin:30px 0 14px;gap:12px}.section-head h2{font-size:21px;margin:0}.section-head span{font-size:13px;color:var(--muted)}
+.quick-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.quick{padding:18px 12px;border-radius:22px;text-align:center;min-height:145px;transition:.2s;box-shadow:0 5px 16px #30277b08}.quick:hover,.card:hover{transform:translateY(-3px)}.quick .big{font-size:39px;display:block;margin-bottom:8px}.quick b{display:block}.quick small{display:block;color:#716e88;margin-top:5px}.q1{background:var(--pink)}.q2{background:var(--blue)}.q3{background:var(--mint)}.q4{background:var(--orange)}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}.card{background:var(--surface);border:1px solid var(--border);border-radius:22px;padding:15px;transition:.2s;min-width:0}.thumb{height:130px;border-radius:16px;display:grid;place-items:center;font-size:62px;margin-bottom:12px}.thumb.story{background:linear-gradient(135deg,#d9e9ff,#fff0c9)}.thumb.game{background:linear-gradient(135deg,#ffe0ed,#e9e3ff)}.thumb.art{background:linear-gradient(135deg,#d9f7e9,#e2edff)}.card h3{font-size:16px;margin:0 0 6px}.card p{font-size:12px;line-height:1.7;color:var(--muted);margin:0 0 12px}.card button{width:100%;background:var(--site-primary);color:#fff;border-radius:12px;padding:10px;font-weight:800}
+.progress-wrap{display:grid;grid-template-columns:1fr 1fr;gap:14px}.progress-card{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:17px}.progress-line{height:9px;background:#eeedf6;border-radius:99px;overflow:hidden;margin:12px 0 7px}.progress-line i{display:block;height:100%;background:#54c99b;border-radius:99px;width:65%}.progress-card small{color:var(--muted)}
+.view{display:none}.view.active{display:block}.view-title{font-size:27px;margin:0 0 8px}.lead{color:var(--muted);line-height:1.8;margin:0 0 22px}.lesson-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.lesson{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:20px;text-align:center}.lesson .letter{font-size:48px;font-weight:900;color:var(--site-primary)}.lesson button{margin-top:10px;background:var(--site-secondary);padding:9px 15px;border-radius:12px;font-weight:800;color:#493600}
+.story-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.story-item{display:flex;gap:15px;align-items:center;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:14px}.story-emoji{font-size:46px;background:#fff0ca;border-radius:15px;padding:12px}.story-item p{font-size:12px;color:var(--muted);margin:5px 0}.story-item button{background:var(--site-primary);color:#fff;border-radius:10px;padding:8px 12px}
+.parent-panel{background:var(--surface);border:1px solid var(--border);border-radius:22px;padding:22px;max-width:650px}.parent-panel label{display:block;font-weight:800;margin:15px 0 6px}.parent-panel input,.parent-panel select{width:100%;padding:12px;border:1px solid var(--border);border-radius:12px;background:var(--site-background);color:var(--text)}
+.footer{padding:28px 8px 8px;text-align:center;color:var(--muted);font-size:12px}
+.reader{position:fixed;inset:0;background:#17142dcc;z-index:20;display:none;place-items:center;padding:16px}.reader.open{display:grid}.reader-box{background:var(--surface);color:var(--text);width:min(680px,100%);border-radius:24px;padding:22px;text-align:center;box-shadow:0 20px 60px #0004}.reader-scene{font-size:clamp(64px,15vw,110px);padding:24px;background:linear-gradient(135deg,#dcecff,#fff0ca);border-radius:20px;margin:14px 0}.reader-box p{line-height:1.9}.reader-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}.reader-actions button{padding:11px 18px;border-radius:12px;background:var(--site-primary);color:white;font-weight:800}.reader-actions button.secondary{background:#eeeafc;color:#39316f}.saved-progress{font-weight:800;color:#287b59}
+.toast{position:fixed;bottom:20px;left:20px;background:#292449;color:white;padding:12px 18px;border-radius:14px;opacity:0;transform:translateY(10px);transition:.25s;z-index:10;pointer-events:none}.toast.show{opacity:1;transform:translateY(0)}
+@media(max-width:900px){.layout{grid-template-columns:1fr}.sidebar{border-left:0;border-bottom:1px solid var(--border);padding:10px 14px;position:sticky;top:73px;z-index:4}.profile,.parent-link{display:none}.nav{display:flex;overflow:auto;gap:5px}.nav button{white-space:nowrap;padding:10px 12px}.nav .ico{width:auto}.quick-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.topbar{padding:11px 13px}.brand{font-size:16px}.brand-mark{width:36px;height:36px}.top-actions .pill{padding:8px 10px;font-size:12px}.welcome{border-radius:22px}.hero-art{font-size:68px}.welcome h1{font-size:25px}.cards,.story-list,.progress-wrap{grid-template-columns:1fr}.lesson-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.thumb{height:105px}}
+</style>
+</head>
+<body>
+<div id="app">
+<header class="topbar">
+ <div class="brand"><div class="brand-mark">🌈</div><div><span data-ar="عالم الطفل" data-en="Kids World">عالم الطفل</span><small>KIDS WORLD · LEARN & PLAY</small></div></div>
+ <div class="top-actions"><button class="pill" id="ageBtn">👧 3–8 سنوات</button><button class="pill lang" id="langBtn">EN</button><button class="pill" id="soundBtn" aria-label="الصوت">🔊</button></div>
+</header>
+<div class="layout">
+<aside class="sidebar">
+ <div class="profile"><div class="avatar">🧒</div><b data-ar="مرحباً يا بطل!" data-en="Hello, little star!">مرحباً يا بطل!</b><span data-ar="هيا نتعلم ونلعب اليوم" data-en="Let's learn and play today">هيا نتعلم ونلعب اليوم</span></div>
+ <nav class="nav" aria-label="التنقل">
+  <button class="active" data-view="home"><span class="ico">🏠</span><span data-ar="الرئيسية" data-en="Home">الرئيسية</span></button>
+  <button data-view="letters"><span class="ico">🔤</span><span data-ar="الحروف" data-en="Letters">الحروف</span></button>
+  <button data-view="numbers"><span class="ico">🔢</span><span data-ar="الأرقام" data-en="Numbers">الأرقام</span></button>
+  <button data-view="stories"><span class="ico">📚</span><span data-ar="القصص" data-en="Stories">القصص</span></button>
+  <button data-view="games"><span class="ico">🧩</span><span data-ar="الألعاب" data-en="Games">الألعاب</span></button>
+  <button data-view="art"><span class="ico">🎨</span><span data-ar="الرسم" data-en="Art studio">الرسم</span></button>
+ </nav>
+ <button class="parent-link" data-view="parents">🔐 <span data-ar="منطقة ولي الأمر" data-en="Parent area">منطقة ولي الأمر</span></button>
+</aside>
+<main>
+<section class="view active" id="home">
+ <div class="welcome"><div><h1 data-ar="مرحباً بك في عالم الطفل!" data-en="Welcome to Kids World!">مرحباً بك في عالم الطفل!</h1><p data-ar="هنا تبدأ مغامرتك الجميلة. تعلّم، العب، واكتشف أشياء جديدة كل يوم!" data-en="Your bright adventure starts here. Learn, play and discover something new every day!">هنا تبدأ مغامرتك الجميلة. تعلّم، العب، واكتشف أشياء جديدة كل يوم!</p><button class="cta" data-go="letters" data-ar="ابدأ المغامرة ←" data-en="Start exploring →">ابدأ المغامرة ←</button></div><div class="hero-art">🦊🌟</div></div>
+ <div class="section-head"><h2 data-ar="ماذا نكتشف اليوم؟" data-en="What shall we explore?">ماذا نكتشف اليوم؟</h2><span data-ar="اختر مغامرتك" data-en="Choose your adventure">اختر مغامرتك</span></div>
+ <div class="quick-grid">
+  <button class="quick q1" data-go="letters"><span class="big">🔤</span><b data-ar="الحروف" data-en="Letters">الحروف</b><small data-ar="نتعلم حرفاً جديداً" data-en="Discover letters">نتعلم حرفاً جديداً</small></button>
+  <button class="quick q2" data-go="numbers"><span class="big">🔢</span><b data-ar="الأرقام" data-en="Numbers">الأرقام</b><small data-ar="نعدّ ونحسب" data-en="Count and add">نعدّ ونحسب</small></button>
+  <button class="quick q3" data-go="stories"><span class="big">📖</span><b data-ar="القصص" data-en="Stories">القصص</b><small data-ar="حكايات قبل النوم" data-en="Wonderful tales">حكايات قبل النوم</small></button>
+  <button class="quick q4" data-go="games"><span class="big">🧩</span><b data-ar="الألعاب" data-en="Games">الألعاب</b><small data-ar="العب واكتشف" data-en="Play and discover">العب واكتشف</small></button>
+ </div>
+ <div class="section-head"><h2 data-ar="مغامرات مقترحة لك" data-en="Picked for you">مغامرات مقترحة لك</h2><span data-ar="المزيد قريباً" data-en="More coming soon">المزيد قريباً</span></div>
+ <div class="cards">
+  <article class="card"><div class="thumb story">🐰⭐</div><h3 data-ar="الأرنب والنجمة الذهبية" data-en="The Bunny and the Golden Star">الأرنب والنجمة الذهبية</h3><p data-ar="قصة عن الصداقة والتعاون ومساعدة الآخرين." data-en="A story about friendship and teamwork.">قصة عن الصداقة والتعاون ومساعدة الآخرين.</p><button data-go="stories" data-ar="اقرأ القصة" data-en="Read story">اقرأ القصة</button></article>
+  <article class="card"><div class="thumb game">🦋🌼</div><h3 data-ar="لعبة الألوان" data-en="Color match">لعبة الألوان</h3><p data-ar="تعرّف على الألوان من خلال لعبة ممتعة." data-en="Explore colors through a playful activity.">تعرّف على الألوان من خلال لعبة ممتعة.</p><button data-go="games" data-ar="العب الآن" data-en="Play now">العب الآن</button></article>
+  <article class="card"><div class="thumb art">🖍️🐠</div><h3 data-ar="لوحة الرسام الصغير" data-en="Little Artist">لوحة الرسام الصغير</h3><p data-ar="اختر الألوان وأطلق العنان لخيالك." data-en="Pick colors and let your imagination shine.">اختر الألوان وأطلق العنان لخيالك.</p><button data-go="art" data-ar="ابدأ الرسم" data-en="Start drawing">ابدأ الرسم</button></article>
+ </div>
+ <div class="section-head"><h2 data-ar="تعلم مع ريتال وكنان" data-en="Learn with Rital and Kinan">تعلم مع ريتال وكنان</h2><span data-ar="شاهد · اسمع · جرّب" data-en="See · Listen · Try">شاهد · اسمع · جرّب</span></div>
+ <div class="card" style="padding:18px">
+  <div style="display:flex;justify-content:center;gap:28px;flex-wrap:wrap;text-align:center;font-size:56px"><div>👧🏻<b style="display:block;font-size:15px">ريتال · Rital</b></div><div>👦🏻<b style="display:block;font-size:15px">كنان · Kinan</b></div></div>
+  <p class="lead" style="margin:10px 0" data-ar="اختر حيواناً أو شيئاً، واستمع إلى حوار قصير بين الصديقين باللغتين." data-en="Choose an animal or an object and listen to a short bilingual conversation between the friends.">اختر حيواناً أو شيئاً، واستمع إلى حوار قصير بين الصديقين باللغتين.</p>
+  <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="pill" id="topicAnimal">🐾 الحيوانات</button><button class="pill" id="topicObject">🎒 الأشياء</button></div>
+  <div id="friendLesson" style="margin-top:14px;background:var(--surface-2);padding:16px;border-radius:18px;text-align:center"><div id="friendPicture" style="font-size:64px">🐱</div><h3 id="friendWord">قطة · Cat</h3><div id="friendDialogue" style="line-height:2;text-align:start"></div><div class="reader-actions" style="margin-top:12px"><button id="friendSpeak">🔊 استمع للحوار</button><button class="secondary" id="friendQuestion">🎯 اختبرني</button></div><p id="friendFeedback" aria-live="polite"></p></div>
+ </div>
+ <div class="section-head"><h2 data-ar="إنجازاتك الجميلة" data-en="Your progress">إنجازاتك الجميلة</h2><span>⭐ 3</span></div>
+ <div class="progress-wrap"><div class="progress-card"><b data-ar="رحلة الحروف" data-en="Letter journey">رحلة الحروف</b><div class="progress-line"><i style="width:35%"></i></div><small data-ar="تعلمت 7 من 20 حرفاً" data-en="7 of 20 letters learned">تعلمت 7 من 20 حرفاً</small></div><div class="progress-card"><b data-ar="نجومك اليوم" data-en="Today's stars">نجومك اليوم</b><div class="progress-line"><i style="width:65%;background:#f2bf4b"></i></div><small data-ar="جمعت 0 من 10 نجوم" data-en="You earned 0 of 10 stars">جمعت 0 من 10 نجوم</small></div></div>
+</section>
+<section class="view" id="letters"><h1 class="view-title" data-ar="حديقة الحروف 🔤" data-en="Letter Garden 🔤">حديقة الحروف 🔤</h1><p class="lead" data-ar="اضغط على الحرف لتتعرف على اسمه وكلمة تبدأ به." data-en="Tap a letter to hear its name and discover a word.">اضغط على الحرف لتتعرف على اسمه وكلمة تبدأ به.</p><div class="lesson-grid" id="letterGrid"></div></section>
+<section class="view" id="numbers"><h1 class="view-title" data-ar="مملكة الأرقام 🔢" data-en="Number Kingdom 🔢">مملكة الأرقام 🔢</h1><p class="lead" data-ar="هيا نعدّ معاً! اضغط على الرقم لتظهر لك مجموعة من الأشياء." data-en="Let's count together! Tap a number to see a group of objects.">هيا نعدّ معاً! اضغط على الرقم لتظهر لك مجموعة من الأشياء.</p><div class="lesson-grid" id="numberGrid"></div></section>
+<section class="view" id="stories"><h1 class="view-title" data-ar="مكتبة الحكايات 📚" data-en="Story Library 📚">مكتبة الحكايات 📚</h1><p class="lead" data-ar="قصص لطيفة تعلمنا قيماً جميلة وتفتح أبواب الخيال." data-en="Gentle stories that teach good values and spark imagination.">قصص لطيفة تعلمنا قيماً جميلة وتفتح أبواب الخيال.</p><div class="story-list"><article class="story-item"><div class="story-emoji">🐰⭐</div><div><b data-ar="الأرنب الصغير والنجمة الذهبية" data-en="The Little Bunny and the Golden Star">الأرنب الصغير والنجمة الذهبية</b><p data-ar="8 مشاهد · الصداقة والتعاون" data-en="8 scenes · Friendship and teamwork">8 مشاهد · الصداقة والتعاون</p><button data-story> <span data-ar="ابدأ القصة" data-en="Open story">ابدأ القصة</span></button></div></article><article class="story-item"><div class="story-emoji">🐢🌈</div><div><b data-ar="السلحفاة وقوس قزح" data-en="The Turtle and the Rainbow">السلحفاة وقوس قزح</b><p data-ar="قصة عن الصبر والأمل" data-en="A story about patience and hope">قصة عن الصبر والأمل</p><button data-story><span data-ar="قريباً" data-en="Coming soon">قريباً</span></button></div></article></div></section>
+<section class="view" id="games"><h1 class="view-title" data-ar="ساحة الألعاب 🧩" data-en="Playground 🧩">ساحة الألعاب 🧩</h1><p class="lead" data-ar="ألعاب قصيرة وممتعة تساعدك على التركيز والتفكير." data-en="Short playful activities to build focus and thinking.">ألعاب قصيرة وممتعة تساعدك على التركيز والتفكير.</p><div class="cards"><article class="card"><div class="thumb game">🍎🍌🍇</div><h3 data-ar="لعبة الفاكهة" data-en="Fruit counting">لعبة الفاكهة</h3><p data-ar="كم تفاحة ترى في الصورة؟" data-en="How many apples can you see?">كم تفاحة ترى في الصورة؟</p><button data-quiz="fruit">ابدأ اللعبة</button></article><article class="card"><div class="thumb story">🔺🟡🟦</div><h3 data-ar="صائد الأشكال" data-en="Shape finder">صائد الأشكال</h3><p data-ar="تعرف على الدائرة والمربع والمثلث." data-en="Find circles, squares and triangles.">تعرف على الدائرة والمربع والمثلث.</p><button data-quiz="shape">ابدأ اللعبة</button></article><article class="card"><div class="thumb art">🧠✨</div><h3 data-ar="ذاكرة الأبطال" data-en="Memory stars">ذاكرة الأبطال</h3><p data-ar="تذكر الصور المتشابهة." data-en="Remember matching pictures.">تذكر الصور المتشابهة.</p><button data-quiz="memory">ابدأ اللعبة</button></article></div></section>
+<section class="view" id="art"><h1 class="view-title" data-ar="مرسم الألوان 🎨" data-en="Color Studio 🎨">مرسم الألوان 🎨</h1><p class="lead" data-ar="اختر لوناً ثم المس اللوحة لتضيف دوائر ملونة. (تجربة أولية)" data-en="Choose a color and tap the canvas to add colorful dots. (Prototype)">اختر لوناً ثم المس اللوحة لتضيف دوائر ملونة. (تجربة أولية)</p><div class="parent-panel"><div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px"><button class="pill" data-color="#ff7da8">🌸 وردي</button><button class="pill" data-color="#65b8ff">💧 أزرق</button><button class="pill" data-color="#65d6a5">🍀 أخضر</button><button class="pill" data-color="#ffc64d">☀️ أصفر</button><button class="pill" id="clearCanvas">مسح اللوحة</button></div><canvas id="paint" width="800" height="360" style="width:100%;height:auto;border:2px dashed #c9c4e9;border-radius:18px;background:#fff;touch-action:manipulation"></canvas></div></section>
+<section class="view" id="parents"><h1 class="view-title" data-ar="منطقة ولي الأمر 🔐" data-en="Parent Zone 🔐">منطقة ولي الأمر 🔐</h1><p class="lead" data-ar="تابع تقدم طفلك واضبط تجربته التعليمية." data-en="Follow your child's progress and manage the learning experience.">تابع تقدم طفلك واضبط تجربته التعليمية.</p><div class="parent-panel" style="max-width:850px"><b data-ar="ملف الطفل" data-en="Child profile">ملف الطفل</b><label for="childName" data-ar="اسم الطفل (اختياري)" data-en="Child's name (optional)">اسم الطفل (اختياري)</label><input id="childName" placeholder="مثال: سارة" aria-label="اسم الطفل"><label for="childAge" data-ar="الفئة العمرية" data-en="Age group">الفئة العمرية</label><select id="childAge"><option>3–4 سنوات</option><option>5–6 سنوات</option><option>7–8 سنوات</option></select><label for="screenLimit" data-ar="المدة اليومية المقترحة" data-en="Suggested daily screen time">المدة اليومية المقترحة</label><select id="screenLimit"><option>15 دقيقة</option><option>20 دقيقة</option><option>30 دقيقة</option></select><button class="cta" id="saveParent" style="margin-top:16px" data-ar="حفظ الإعدادات" data-en="Save settings">حفظ الإعدادات</button><div class="section-head"><h2 data-ar="ملخص التعلم" data-en="Learning summary">ملخص التعلم</h2></div><div class="progress-wrap"><div class="progress-card"><b id="parentStars">⭐ 0</b><div class="progress-line"><i id="parentStarBar" style="width:0%"></i></div><small data-ar="النجوم المكتسبة" data-en="Stars earned">النجوم المكتسبة</small></div><div class="progress-card"><b id="parentActivities">0</b><div class="progress-line"><i id="parentActivityBar" style="width:0%"></i></div><small data-ar="الأنشطة المكتملة" data-en="Activities completed">الأنشطة المكتملة</small></div></div><p id="parentStoryStatus" class="lead" style="margin-top:18px"></p><button class="pill" id="resetProgress" style="margin-top:8px" data-ar="إعادة ضبط التقدم" data-en="Reset progress">إعادة ضبط التقدم</button><p class="lead" style="margin-top:14px" data-ar="تُحفظ هذه البيانات على هذا الجهاز فقط. لا توجد حالياً حسابات أو مزامنة سحابية." data-en="This data is stored on this device only. Accounts and cloud sync are not available yet.">تُحفظ هذه البيانات على هذا الجهاز فقط. لا توجد حالياً حسابات أو مزامنة سحابية.</p></div></section>
+<div class="footer" data-ar="عالم الطفل · نتعلم باللعب ونكبر بالخيال 💜" data-en="Kids World · Learn through play, grow with imagination 💜">عالم الطفل · نتعلم باللعب ونكبر بالخيال 💜</div>
+</main></div><div class="reader" id="storyReader" role="dialog" aria-modal="true" aria-label="قصة تفاعلية"><div class="reader-box"><div id="storyCounter">المشهد 1 من 8</div><div class="reader-scene" id="storyArt">🐰⭐</div><h2 id="storyHeading">الأرنب الصغير والنجمة الذهبية</h2><p id="storyText"></p><div class="reader-actions"><button class="secondary" id="storyClose">إغلاق</button><button class="secondary" id="storyListen">🔊 استمع</button><button class="secondary" id="saveStoryOffline">⬇ حفظ القصة</button><button id="storyPrev">السابق</button><button id="storyNext">التالي</button></div></div></div><div class="toast" id="toast" role="status"></div><div id="offlineStatus" style="position:fixed;right:12px;bottom:12px;z-index:9;background:#e8fff3;color:#145c3c;padding:8px 12px;border-radius:12px;font-size:12px;font-weight:800;box-shadow:0 3px 12px #0001">● جاهز للاستخدام دون إنترنت بعد أول زيارة</div>
+</div>
+<script>
+let lang='ar',currentColor='#ff7da8';
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+function showToast(ar,en){const t=$('#toast');t.textContent=lang==='ar'?ar:en;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2300)}
+function go(id){$$('.view').forEach(v=>v.classList.toggle('active',v.id===id));$$('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.view===id));window.scrollTo({top:0,behavior:'smooth'});}
+$$('[data-view]').forEach(b=>b.addEventListener('click',()=>go(b.dataset.view)));
+$$('[data-go]').forEach(b=>b.addEventListener('click',()=>go(b.dataset.go)));
+$('#langBtn').addEventListener('click',()=>{lang=lang==='ar'?'en':'ar';document.documentElement.lang=lang;document.documentElement.dir=lang==='ar'?'rtl':'ltr';$$('[data-ar]').forEach(el=>{el.textContent=el.dataset[lang]});$('#langBtn').textContent=lang==='ar'?'EN':'عربي';$('#ageBtn').textContent=lang==='ar'?'👧 3–8 سنوات':'👧 Ages 3–8';});
+$('#ageBtn').addEventListener('click',()=>showToast('الفئات: 3–4، 5–6، 7–8 سنوات','Age groups: 3–4, 5–6, 7–8'));
+
+const letters=[['أ','أسد','🦁'],['ب','بطة','🦆'],['ت','تفاحة','🍎'],['ث','ثعلب','🦊'],['ج','جمل','🐪'],['ح','حصان','🐴']];
+function renderLetters(){letters.forEach(([l,w,e])=>{let d=document.createElement('div');d.className='lesson';d.innerHTML=`<div class="letter">${l}</div><div style="font-size:30px">${e}</div><b>${lang==='ar'?w:({أسد:'Lion',بطة:'Duck',تفاحة:'Apple',ثعلب:'Fox',جمل:'Camel',حصان:'Horse'}[w])}</b><br><button>🔊 ${lang==='ar'?'استمع':'Listen'}</button>`;d.querySelector('button').onclick=()=>{showToast(lang==='ar'?`${l} مثل ${w}`:`${l} as in ${w}`);if('speechSynthesis'in window){speechSynthesis.cancel();speechSynthesis.speak(new SpeechSynthesisUtterance(lang==='ar'?`${l}، ${w}`:w));}};$('#letterGrid').append(d)})}
+renderLetters();
+// Offline-first support: cache the app shell after the first visit.
+if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(() => {}));
+}
+function updateNetworkStatus(){const el=document.getElementById('offlineStatus');if(!el)return;el.textContent=navigator.onLine?'● متصل بالإنترنت':'● تعمل الآن دون إنترنت';el.style.background=navigator.onLine?'#e8fff3':'#fff1d6';el.style.color=navigator.onLine?'#145c3c':'#7a4b00';}
+window.addEventListener('online',updateNetworkStatus);window.addEventListener('offline',updateNetworkStatus);updateNetworkStatus();
+for(let n=1;n<=6;n++){let d=document.createElement('div');d.className='lesson';d.innerHTML=`<div class="letter">${n}</div><div style="font-size:29px">${'⭐'.repeat(n)}</div><button>${lang==='ar'?'عدّ النجوم':'Count stars'}</button>`;d.querySelector('button').onclick=()=>showToast(`أحسنت! عدد النجوم ${n}` ,`Well done! ${n} stars`);$('#numberGrid').append(d)}
+$$('[data-story]').forEach(b=>b.addEventListener('click',()=>showToast('القصة ستُضاف كاملة في المرحلة التالية','Full story will be added in the next phase')));
+$$('[data-quiz]').forEach(b=>b.addEventListener('click',()=>{let q=b.dataset.quiz;if(q==='fruit'){let a=prompt(lang==='ar'?'كم تفاحة؟ اكتب الرقم 3 أو 2':'How many apples? Type 3 or 2');showToast(a==='3'?'أحسنت! إجابة صحيحة ⭐':'حاول مرة أخرى، أنت تستطيع!','Great job! ⭐');}else showToast('هذا النشاط سيُطوّر في المرحلة التالية','This activity will be built in the next phase')}));
+$$('[data-color]').forEach(b=>b.addEventListener('click',()=>currentColor=b.dataset.color));
+const canvas=$('#paint'),ctx=canvas.getContext('2d');canvas.addEventListener('pointerdown',e=>{const r=canvas.getBoundingClientRect(),x=(e.clientX-r.left)*canvas.width/r.width,y=(e.clientY-r.top)*canvas.height/r.height;ctx.fillStyle=currentColor;ctx.beginPath();ctx.arc(x,y,24,0,Math.PI*2);ctx.fill()});$('#clearCanvas').onclick=()=>ctx.clearRect(0,0,canvas.width,canvas.height);
+
+// المرحلة الثانية: تقدم محلي محفوظ + قصة تفاعلية + أسئلة اختيارية
+const STORE_KEY='kidsWorldProgressV2';
+let progress={stars:0,completed:[],correct:0};
+try{progress={...progress,...JSON.parse(localStorage.getItem(STORE_KEY)||'{}')}}catch(e){}
+function saveProgress(){try{localStorage.setItem(STORE_KEY,JSON.stringify(progress))}catch(e){};refreshProgress()}
+function refreshProgress(){
+ const stars=Math.min(10,progress.stars||0);
+ const small=$('#home .progress-card small'); if(small)small.textContent=lang==='ar'?`جمعت ${stars} من 10 نجوم`:`You earned ${stars} of 10 stars`;
+ const bar=$('#home .progress-card .progress-line i');if(bar)bar.style.width=(stars*10)+'%';
+ const second=$$('#home .progress-card small')[1];if(second)second.textContent=lang==='ar'?`أنشطة مكتملة: ${progress.completed.length}`:`Activities completed: ${progress.completed.length}`;
+}
+function award(id){if(!progress.completed.includes(id)){progress.completed.push(id);progress.stars=Math.min(10,(progress.stars||0)+1);saveProgress();showToast('رائع! حصلت على نجمة ⭐','Great! You earned a star ⭐')}else showToast('أكملت هذا النشاط من قبل!','You completed this activity already!')}
+refreshProgress();
+const scenes=[
+ ['🌳🐰','كان يا ما كان، أرنب صغير يعيش قرب غابة جميلة. وكان يحب النظر إلى السماء كل ليلة.','Once upon a time, a little bunny lived near a beautiful forest.'],
+ ['🌟','في ليلة هادئة، رأى الأرنب نجمة ذهبية تلمع ثم سقطت خلف التلال.','One quiet night, he saw a golden star fall behind the hills.'],
+ ['🐰💭','قال الأرنب: سأبحث عنها، فقد تكون بحاجة إلى المساعدة.','The bunny decided to look for it and help.'],
+ ['🦊🤝','قابل ثعلباً صغيراً، فعرض عليه الثعلب أن يساعده في البحث.','He met a little fox who offered to help.'],
+ ['🐻🧭','ثم انضم إليهما دب لطيف وأرشدهم إلى الطريق الصحيح.','A kind bear joined them and showed the way.'],
+ ['🌟🌿','وجد الأصدقاء النجمة بين الأعشاب، وكانت خائفة ووحيدة.','They found the star in the grass, frightened and alone.'],
+ ['🐰🦊🐻','تعاون الأصدقاء ورفعوا النجمة إلى قمة التل حتى عادت إلى السماء.','Together they helped the star return to the sky.'],
+ ['🌌💛','أضاءت النجمة السماء، وعرف الأرنب أن التعاون يجعل الأمور الجميلة ممكنة.','The star lit the sky. The bunny learned that teamwork makes wonderful things possible.']
+];let sceneIndex=0;
+function renderScene(){const sc=scenes[sceneIndex];$('#storyCounter').textContent=lang==='ar'?`المشهد ${sceneIndex+1} من 8`:`Scene ${sceneIndex+1} of 8`;
+ $('#storyArt').textContent=sc[0];$('#storyText').textContent=lang==='ar'?sc[1]:sc[2];$('#storyPrev').disabled=sceneIndex===0;$('#storyNext').textContent=sceneIndex===7?(lang==='ar'?'إنهاء القصة':'Finish story'):(lang==='ar'?'التالي':'Next');}
+function openStory(){sceneIndex=0;renderScene();$('#storyReader').classList.add('open')}
+$$('[data-story]').forEach((b,i)=>{if(i===0)b.onclick=openStory;else b.onclick=()=>showToast('ستتوفر هذه القصة قريباً','This story is coming soon')});
+$('#storyClose').onclick=()=>$('#storyReader').classList.remove('open');$('#storyPrev').onclick=()=>{if(sceneIndex>0){sceneIndex--;renderScene()}};
+$('#storyNext').onclick=()=>{if(sceneIndex<7){sceneIndex++;renderScene()}else{$('#storyReader').classList.remove('open');award('story-bunny')}};
+// أسئلة تفاعلية مناسبة للأطفال دون استخدام نافذة prompt
+const quizBank={fruit:{q:'كم تفاحة في السلة؟',en:'How many apples are in the basket?',art:'🍎🍎🍎',opts:['2','3','4'],answer:'3'},shape:{q:'أي شكل هو الدائرة؟',en:'Which shape is the circle?',art:'🔺 🟡 🟦',opts:['🔺','🟡','🟦'],answer:'🟡'},memory:{q:'أي صورتين متشابهتان؟',en:'Which two pictures match?',art:'🐱 🌼 🐶 🐱',opts:['🐱','🌼','🐶'],answer:'🐱'}};
+$$('[data-quiz]').forEach(b=>b.onclick=()=>{const key=b.dataset.quiz,q=quizBank[key];if(!q)return;const host=$('#quizModal');host?.remove();const modal=document.createElement('div');modal.className='reader open';modal.id='quizModal';modal.innerHTML=`<div class="reader-box"><div class="reader-scene">${q.art}</div><h2>${lang==='ar'?q.q:q.en}</h2><div class="reader-actions">${q.opts.map(o=>`<button data-answer="${o}">${o}</button>`).join('')}</div><p id="quizFeedback" aria-live="polite"></p><div class="reader-actions"><button class="secondary" id="quizClose">إغلاق</button></div></div>`;document.body.append(modal);modal.querySelector('#quizClose').onclick=()=>modal.remove();modal.querySelectorAll('[data-answer]').forEach(btn=>btn.onclick=()=>{const ok=btn.dataset.answer===q.answer;modal.querySelector('#quizFeedback').textContent=ok?(lang==='ar'?'أحسنت! إجابة صحيحة ⭐':'Correct! Well done ⭐'):(lang==='ar'?'حاول مرة أخرى، أنت تستطيع!':'Try again, you can do it!');if(ok){progress.correct=(progress.correct||0)+1;award('quiz-'+key);modal.querySelectorAll('[data-answer]').forEach(x=>x.disabled=true)}})});
+// تسجيل الحروف والأرقام كأنشطة تعلم عند الضغط
+$('#letterGrid').addEventListener('click',e=>{if(e.target.closest('button'))award('letters-intro')});
+$('#numberGrid').addEventListener('click',e=>{if(e.target.closest('button'))award('numbers-intro')});
+
+
+
+// المرحلة الثالثة: لوحة ولي الأمر، إعدادات محفوظة، قراءة صوتية، ومكتبة قصص محلية
+const PARENT_KEY='kidsWorldParentSettingsV1';
+let parentSettings={name:'',age:'3–4 سنوات',limit:'15 دقيقة'};
+try{parentSettings={...parentSettings,...JSON.parse(localStorage.getItem(PARENT_KEY)||'{}')}}catch(e){}
+function loadParentSettings(){const n=$('#childName'),a=$('#childAge'),l=$('#screenLimit');if(n)n.value=parentSettings.name||'';if(a)a.value=parentSettings.age||'3–4 سنوات';if(l)l.value=parentSettings.limit||'15 دقيقة'}
+function refreshParent(){const st=$('#parentStars'),ac=$('#parentActivities'),sb=$('#parentStarBar'),ab=$('#parentActivityBar'),ss=$('#parentStoryStatus');if(!st)return;st.textContent='⭐ '+(progress.stars||0);ac.textContent=progress.completed.length;sb.style.width=Math.min(100,(progress.stars||0)*10)+'%';ab.style.width=Math.min(100,progress.completed.length*12)+'%';let saved=[];try{saved=JSON.parse(localStorage.getItem('kidsWorldOfflineStories')||'[]')}catch(e){};ss.textContent=lang==='ar'?`القصص المحفوظة على الجهاز: ${saved.length}`:`Stories saved on this device: ${saved.length}`}
+loadParentSettings();refreshParent();
+$('#saveParent')?.addEventListener('click',()=>{parentSettings={name:$('#childName').value.trim(),age:$('#childAge').value,limit:$('#screenLimit').value};try{localStorage.setItem(PARENT_KEY,JSON.stringify(parentSettings));showToast('تم حفظ إعدادات ولي الأمر','Parent settings saved')}catch(e){showToast('تعذر الحفظ على هذا الجهاز','Could not save settings')} });
+$('#resetProgress')?.addEventListener('click',()=>{if(confirm(lang==='ar'?'هل تريد إعادة ضبط نجوم وإنجازات الطفل؟':'Reset the child’s stars and progress?')){progress={stars:0,completed:[],correct:0};saveProgress();refreshParent();showToast('تمت إعادة ضبط التقدم','Progress reset')}});
+const originalSaveProgress=saveProgress;saveProgress=function(){originalSaveProgress();refreshParent()};
+function speakText(textToSpeak){if(!('speechSynthesis' in window)){showToast('ميزة الصوت غير مدعومة في هذا المتصفح','Speech is not supported in this browser');return}speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(textToSpeak);u.lang=lang==='ar'?'ar-SA':'en-US';u.rate=.82;u.pitch=1.08;speechSynthesis.speak(u)}
+$('#storyListen')?.addEventListener('click',()=>speakText(scenes[sceneIndex][lang==='ar'?1:2]));
+$('#storyNext')?.addEventListener('click',()=>{if('speechSynthesis'in window)speechSynthesis.cancel()});
+$('#storyPrev')?.addEventListener('click',()=>{if('speechSynthesis'in window)speechSynthesis.cancel()});
+$('#storyClose')?.addEventListener('click',()=>{if('speechSynthesis'in window)speechSynthesis.cancel()});
+$('#saveStoryOffline')?.addEventListener('click',()=>{try{let library=JSON.parse(localStorage.getItem('kidsWorldOfflineStories')||'[]');const story={id:'bunny-golden-star',title:'الأرنب الصغير والنجمة الذهبية',savedAt:new Date().toISOString(),scenes:scenes};if(!library.some(x=>x.id===story.id))library.push(story);localStorage.setItem('kidsWorldOfflineStories',JSON.stringify(library));showToast('حُفظت القصة على هذا الجهاز','Story saved on this device');refreshParent()}catch(e){showToast('مساحة التخزين غير كافية','Not enough storage space')}});
+
+// حوارات ريتال وكنان الثنائية اللغة: الصوت يعمل عند طلب الطفل فقط.
+const friendTopics={animal:[
+ {emoji:'🐱',ar:'قطة',en:'Cat',lines:[['ريتال: ماذا ترى يا كنان؟','Rital: What can you see, Kinan?'],['كنان: أرى قطة صغيرة.','Kinan: I can see a little cat.'],['ريتال: ما صوت القطة؟','Rital: What sound does a cat make?'],['كنان: مواء!','Kinan: Meow!']]},
+ {emoji:'🦁',ar:'أسد',en:'Lion',lines:[['ريتال: ما هذا الحيوان؟','Rital: What animal is this?'],['كنان: إنه أسد قوي.','Kinan: It is a strong lion.'],['ريتال: أين يعيش؟','Rital: Where does it live?'],['كنان: يعيش في البرية.','Kinan: It lives in the wild.']]},
+ {emoji:'🐘',ar:'فيل',en:'Elephant',lines:[['ريتال: هل هذا حيوان كبير؟','Rital: Is this a big animal?'],['كنان: نعم، هذا فيل.','Kinan: Yes, this is an elephant.'],['ريتال: ماذا لديه؟','Rital: What does it have?'],['كنان: لديه خرطوم طويل.','Kinan: It has a long trunk.']]}
+],object:[
+ {emoji:'🍎',ar:'تفاحة',en:'Apple',lines:[['ريتال: ماذا في يدك؟','Rital: What is in your hand?'],['كنان: هذه تفاحة حمراء.','Kinan: This is a red apple.'],['ريتال: هل تحب التفاح؟','Rital: Do you like apples?'],['كنان: نعم، إنه لذيذ!','Kinan: Yes, it is delicious!']]},
+ {emoji:'🎒',ar:'حقيبة',en:'Bag',lines:[['ريتال: ماذا تحمل؟','Rital: What are you carrying?'],['كنان: أحمل حقيبتي.','Kinan: I am carrying my bag.'],['ريتال: ماذا نضع فيها؟','Rital: What do we put in it?'],['كنان: كتبي وأقلامي.','Kinan: My books and pencils.']]},
+ {emoji:'⚽',ar:'كرة',en:'Ball',lines:[['ريتال: هل نلعب؟','Rital: Shall we play?'],['كنان: نعم، هذه كرة جميلة.','Kinan: Yes, this is a lovely ball.'],['ريتال: هيا نركلها معاً!','Rital: Let’s kick it together!'],['كنان: هيا بنا!','Kinan: Let’s go!']]}
+]};
+let friendType='animal',friendIndex=0;
+function renderFriend(){const item=friendTopics[friendType][friendIndex];$('#friendPicture').textContent=item.emoji;$('#friendWord').textContent=`${item.ar} · ${item.en}`;$('#friendDialogue').innerHTML=item.lines.map(line=>`<div>${lang==='ar'?line[0]:line[1]}</div>`).join('');$('#friendFeedback').textContent='';}
+$('#topicAnimal')?.addEventListener('click',()=>{friendType='animal';friendIndex=0;renderFriend()});
+$('#topicObject')?.addEventListener('click',()=>{friendType='object';friendIndex=0;renderFriend()});
+$('#friendSpeak')?.addEventListener('click',()=>{const item=friendTopics[friendType][friendIndex];if(!('speechSynthesis'in window)){showToast('الصوت غير مدعوم على هذا الجهاز','Speech is not supported on this device');return;}speechSynthesis.cancel();let i=0;function sayNext(){if(i>=item.lines.length)return;const u=new SpeechSynthesisUtterance(item.lines[i][lang==='ar'?0:1]);u.lang=lang==='ar'?'ar-SA':'en-US';u.rate=.88;u.pitch=1.12;u.onend=()=>{i++;sayNext()};speechSynthesis.speak(u)}sayNext()});
+$('#friendQuestion')?.addEventListener('click',()=>{const item=friendTopics[friendType][friendIndex];$('#friendFeedback').textContent=lang==='ar'?`ما اسم الصورة؟ ${item.ar} ⭐`:`What is in the picture? ${item.en} ⭐`;friendIndex=(friendIndex+1)%friendTopics[friendType].length;});
+renderFriend();
+
+// استخدم النطق المحلي للحروف، مع تجنب تشغيل الصوت تلقائياً
+$('#soundBtn')?.addEventListener('click',()=>speakText(lang==='ar'?'مرحباً بك في عالم الطفل، هيا نتعلم ونلعب':'Welcome to Kids World. Let’s learn and play'));
+
+</script>
+</body></html>

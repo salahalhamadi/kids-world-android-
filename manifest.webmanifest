@@ -1,0 +1,14 @@
+{
+  "name": "عالم الطفل – Kids World",
+  "short_name": "Kids World",
+  "description": "تطبيق تعليمي وترفيهي للأطفال من 3 إلى 8 سنوات بالعربية والإنجليزية",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f5f6ff",
+  "theme_color": "#6557d9",
+  "icons": [{"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}
